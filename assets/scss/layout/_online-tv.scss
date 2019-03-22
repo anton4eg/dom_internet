@@ -1,0 +1,38 @@
+.online-tv{
+    .main-picture{
+        background-image: url(../img/tv-bg.jpg);
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .main-picture__box{
+        
+    }
+    .online-tv{
+        .observation-box__list{
+             margin-top: 40px;
+        }
+        .scheme{
+            margin-top: 83px;
+        }
+        .equipment{
+            margin-top: 72px;
+        }
+        .reviews{
+            margin-top: 72px;
+        }
+        .portfolio{
+            margin-top: 73px;
+        }
+        .service{
+            margin-top: 74px;
+        }
+        .question{
+            margin-top: 74px;
+        }
+        .order{
+            margin-top: 78px;
+        }
+    }
+}

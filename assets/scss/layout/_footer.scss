@@ -1,0 +1,138 @@
+
+/*
+================================================================================
+|                                     FOOTER                                   |
+================================================================================
+*/
+footer{
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);	
+	margin-top: 78px;
+	text-align:left;
+	width:100%;
+	min-width: $min-width;
+	order: 3;	
+    padding-bottom: 16px;
+    -webkit-order: 3;	
+    .header-bottom__list{
+        margin-left: 5.75%;
+        padding-top: 13px;
+    }
+    .header-bottom__wrapper{
+        padding-left: 42px;
+        padding-right: 39px;
+    }
+    .header-bottom__btn{
+        margin-top: 13px;
+    }
+    .header-bottom__workday{
+        padding-top: 11px;
+    }
+    .header-bottom{
+        border-bottom: 1px solid  #D5DADC;
+    }
+    .header-list__drop{
+        top: auto;
+        bottom: 70px;
+    }
+    .header-top{
+        padding-top: 17px;
+        box-shadow: none;
+    }
+    .header-top__wrapper{
+        padding-left: 42px;
+        padding-right: 62px;
+    }
+    .header-menu__item{
+        padding-top: 14px;
+    }
+    .social-list__item{
+        font-size: 26px;
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+    .social-list__item .icon-union
+    {
+        font-size: 24px;
+    }
+    .social-list__item .icon-skype{
+        font-size: 27px;
+    }
+    .social-list__item  svg{
+        width: 21px;
+        height: 21px;
+    }
+    .social-list__item .icon-vk{
+        font-size: 33px;
+    }
+    .social-list__item .icon-fb{
+        font-size: 22px;
+    }
+    .social-list{
+        position: relative;
+        right: -19px;
+    }
+    .header-top__menu{
+        position: relative;
+        left: -70px;
+    }
+}
+.footer-text{
+    font-weight: normal;
+line-height: 20px;
+font-size: 14px;
+
+color: #1F1F1F;
+}
+.footer-design{
+    text-align: right;
+    color: #797979;
+    font-weight: normal;
+line-height: 20px;
+font-size: 14px;
+text-align: right;
+a{
+   color: #797979;
+   text-decoration: underline; 
+}
+}
+.footer-phones {
+	padding: 19px 0 17px 0;
+	border-bottom: 1px solid  #D5DADC;
+	ul {
+		list-style: none;
+		display: flex;
+        width: 100%;
+		justify-content: space-between;
+	}
+	div {
+		margin-bottom: 5px;
+		font-size: 14px;
+		color: rgba(#1F1F1F, .6);
+	}
+	a {
+		font-size: 18px;
+		color: #1F1F1F;
+	}
+
+}
+
+
+@media screen and (max-width: 1200px) {
+	
+}
+
+@media screen and (min-width: 992px){
+	
+}
+
+@media screen and (max-width: 991px) {
+	
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+@media screen and (max-width: 767px) {
+	
+}

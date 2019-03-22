@@ -1,0 +1,25 @@
+<svg width="80" height="23" viewBox="0 0 80 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0 22.2222H4.18896V17.8588H0V22.2222Z" fill="#0097DD"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M75.811 22.2222H80V17.8588H75.811V22.2222Z" fill="#0097DD"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.28003 7.28742H17.621V2.92395H4.28003V7.28742Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.37793 22.2222H13.5686V8.2771H8.37793V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.7137 22.2222H23.9499V2.92395H18.7137V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32.3734 22.2222H37.5641V2.92395H32.3734V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.0427 7.28742H30.2334V2.92395H25.0427V7.28742Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.0427 14.7548H30.2334V10.3914H25.0427V14.7548Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.0427 22.2222H30.2334V17.8588H25.0427V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38.6569 22.2222H43.8475V17.8588H38.6569V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M44.9402 22.2222H50.1309V2.92395H44.9402V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M51.2692 7.28742H56.4598V2.92395H51.2692V7.28742Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M51.2692 14.7548H56.4598V10.3914H51.2692V14.7548Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M51.2692 22.2222H56.4598V17.8588H51.2692V22.2222Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M66.2037 4.49842V0C61.605 0.134953 59.1007 3.73369 59.1007 8.81691H63.9727C63.7905 6.88259 64.5646 5.03823 66.2037 4.49842Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M74.5361 6.43279C74.5817 2.87903 72.0318 -0.0899291 67.342 3.94133e-05V4.49846C68.708 4.90332 69.5276 5.48812 69.5276 6.88263C69.5276 9.76162 65.6573 13.3604 59.1007 18.0837V22.2223H74.5361V17.9038H66.7501C73.3068 12.7306 74.4906 9.85159 74.5361 6.43279Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="80" height="22.2222" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,163 @@
+.net{
+    .main-picture{
+        background-image: url(../img/net-bg.jpg);
+    }
+  
+}
+.net-rate-all{
+position: relative;
+    .mCSB_container{
+        
+    }
+        &::before{
+            position: absolute;
+    left: 0;
+    top: -64px;
+    bottom: 0;
+    right: 0;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 0px 0px 4px 4px;
+    -moz-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+    content: '';
+    display: block;
+    z-index: -1;
+        }
+    .rate-all__th{
+        color: #4C4C4C;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 16px;
+        text-align: center;
+        height: auto;
+        background: white;
+        width: auto;
+        border-right:   1px solid #E5E8EB;
+        border-bottom: 1px solid #E5E8EB;
+        padding-left: 0;
+                padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 18px;
+        padding-left: 15px;
+        padding-right: 15px;
+        &:first-child{
+            text-align: left;
+            padding-left: 18px;
+        }
+        &:last-child{
+            border-right: none;
+             
+        }
+    }
+    .rate-all__td{
+        width: auto;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 16px;
+        text-align: center;
+        padding: 0;
+        height: auto;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        vertical-align: middle;
+        color: #1F1F1F;
+        
+        padding-left: 15px;
+        padding-right: 15px;
+        &:first-child{
+            text-align: left;
+            padding-left: 18px;
+            font-weight: bold;
+        }
+    }
+    table{
+        width: 100%;
+    }
+}
+.net-table__item{
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    &.active{
+        visibility: visible;
+        position: static;
+    }
+    .rate-table__name{
+        max-height: 80px;
+        height: auto;
+        height: 80px;
+        background: #E60013;
+        padding-top: 17px;
+        padding-bottom: 17px;
+            display: flex;
+    align-items: center;
+    justify-content: center;
+       
+        img{
+            max-height: 100%;
+        }
+    }
+
+    
+}
+.net-rate__title{
+    font-weight: bold;
+line-height: 34px;
+font-size: 22px;
+text-align: center;
+padding-bottom: 13px;
+color: #1F1F1F;
+    padding-top: 15px;
+     border-bottom: 1px solid #E5E8EB;
+}
+@media screen and (max-width: 1100px){
+    .net-rate-all .mCSB_container{
+        min-width: 1100px !important;
+    }
+}
+@media screen and (min-width: 768px){
+    .net{
+        .main-picture__box{
+            padding-top: 110px;
+        }
+        .rate{
+            margin-top: 0;
+        }
+        .rate-list{
+            margin-top: 39px;
+        }
+        .scheme-box{
+            margin-top: 0;
+        }
+        .scheme{
+            margin-top: 64px;
+        }
+        .equipment{
+            margin-top: 74px;
+        }
+        .reviews{
+            margin-top: 72px;
+        }
+        .news{
+            margin-top: 74px;
+        }
+        .portfolio{
+            margin-top: 71px;
+        }
+        .service{
+            margin-top: 74px;
+        }
+        .question{
+            margin-top: 74px;
+        }
+        .order{
+            margin-top: 78px;
+            .scheme-box{
+                margin-top: 32px;
+            }
+        }
+    }
+}

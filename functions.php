@@ -8,6 +8,8 @@ $theme = new NewTheme();
 
 $theme->activate_menus();
 
+$theme->clean_custom_menus();
+
 $theme->activate_class_body();
 
 include 'template-parts/enqueue.php';

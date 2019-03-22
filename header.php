@@ -3,33 +3,60 @@
 <header>
     <div class="header-top">
         <div class="header-top__wrapper">
-            <ul class="header-top__menu">
-                <li class="header-menu__item">
-                    <a href="#" class="header-menu__link">
-                        Тарифы
-                    </a>
-                </li>
-                <li class="header-menu__item">
-                    <a href="#" class="header-menu__link">
-                        Услуги и цены
-                    </a>
-                </li>
-                <li class="header-menu__item">
-                    <a href="#" class="header-menu__link">
-                        О нас
-                    </a>
-                </li>
-                <li class="header-menu__item">
-                    <a href="#" class="header-menu__link">
-                        Акции
-                    </a>
-                </li>
-                <li class="header-menu__item">
-                    <a href="#" class="header-menu__link">
-                        Статьи
-                    </a>
-                </li>
-            </ul>
+
+            <?php
+            $header1 = array(
+	            'theme_location'  => 'header-1',
+	            'menu'            => '',
+	            'container'       => false,
+	            'menu_class'      => 'header-top__menu',
+	            'menu_id'         => 'header-top-social',
+	            'echo'            => true,
+	            'fallback_cb'     => '__return_empty_string',
+	            'before'          => '',
+	            'after'           => '',
+	            'link_before'     => '',
+	            'link_after'      => '',
+	            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	            'depth'           => 0,
+	            'walker'          => '',
+            );
+            ?>
+
+            <?php //wp_nav_menu( $header1 );
+            clean_custom_menus('header-1', 0, 0, 'header-top__menu', 0, 'header-menu__item', 0, 'header-menu__link');
+            ?>
+
+<!--            <ul class="header-top__menu">-->
+<!--                <li class="header-menu__item">-->
+<!--                    <a href="#" class="header-menu__link">-->
+<!--                        Тарифы-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="header-menu__item">-->
+<!--                    <a href="#" class="header-menu__link">-->
+<!--                        Услуги и цены-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="header-menu__item">-->
+<!--                    <a href="#" class="header-menu__link">-->
+<!--                        О нас-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="header-menu__item">-->
+<!--                    <a href="#" class="header-menu__link">-->
+<!--                        Акции-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="header-menu__item">-->
+<!--                    <a href="#" class="header-menu__link">-->
+<!--                        Статьи-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+
+
+
             <ul class="social-list">
                 <li class="social-list__item">
                     <a href="#" class="social-list__link">

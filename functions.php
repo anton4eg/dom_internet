@@ -14,6 +14,8 @@ $theme->clean_custom_menus();
 
 $theme->activate_class_body();
 
+$theme->set_clear_phone();
+
 if ( function_exists( 'acf_add_options_page' ) ) {
 	// add parent
 	$parent = acf_add_options_page( array(
@@ -38,6 +40,14 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'page_title'  => 'Меню с номерами ',
 		'menu_slug'   => 'theme-menu_phones-settings',
 		'menu_title'  => 'Меню с номерами',
+		'redirect'    => false,
+		'parent_slug' => $parent['menu_slug'],
+	) );
+	// add sub page
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Допольнительное в меню ',
+		'menu_slug'   => 'theme-menu-additional-settings',
+		'menu_title'  => 'Допольнительное в меню',
 		'redirect'    => false,
 		'parent_slug' => $parent['menu_slug'],
 	) );

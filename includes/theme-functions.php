@@ -104,4 +104,17 @@ class NewTheme {
 		}
 	}
 
+	public function set_clear_phone()
+	{
+		/**
+		 * @param $phone
+		 *
+		 * @return string|string[]|null
+		 */
+		function set_clear_phone($phone){
+
+			return preg_replace('~[^0-9]+~','',$phone);
+		}
+	}
+
 }

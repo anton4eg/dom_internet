@@ -5,77 +5,91 @@
         <div class="header-bottom">
             <div class="header-bottom__wrapper">
 
-                <a href="#" class="header-bottom__logo">
-                    <img class="js-img-lazy" data-src="<?= get_template_directory_uri(); ?>/assets/img/footer-logo.svg" src="/" alt="">
-                </a>
+	            <?php
 
-	            <?php wp_nav_menu(array(
+	            $logo = get_field('logo','option');
+
+	            if( $logo ){
+		            $content = '<a href="'.get_home_url().'" class="header-bottom__logo">';
+		            $content .= '<img class="js-img-lazy" data-src="'.$logo['logo_footer']['url'].'" src="/" alt="'.$logo['logo_footer']['alt'].'">';
+		            $content .= '</a>';
+		            echo $content;
+	            }
+
+                wp_nav_menu(array(
 		            'theme_location'    => 'main',
 		            'container'     => false,
 		            'menu_id'           => 'menu-main-footer',
 		            'menu_class'        => 'header-bottom__list',
 		            'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	            )); ?>
+	            ));
 
-                <div class="header-bottom__box">
-                    <div class="header-bottom__call">
-                        <div class="header-call__img">
-                            <i class="icon-tel"></i>
-                        </div>
-                        <div class="header-call__text">
-                            Свяжитесь с нами!
-                            <a href="tel:+84996410306" class="header-call__tel">+8 (499) 641-03-06</a>
-                        </div>
-                    </div>
-                    <div class="header-bottom__workday">
-                        <b>С 9:00 до 21:00</b>
-                        Без выходных и праздничных дней
-                    </div>
-                    <a href="#modal21" data-fancybox='modal' class="btn-white header-bottom__btn">
-                        Заказать звонок
-                    </a>
-                </div>
+                $callback = get_field('callback','option');
+
+
+                echo '<div class="header-bottom__box">';
+
+                if($callback && $callback['show']):
+
+                    $content = '<div class="header-bottom__call">';
+                        $content .= ' <div class="header-call__img">';
+                            $content .= '<i class="icon-tel"></i>';
+                        $content .= '</div>';
+                        $content .= '<div class="header-call__text">'.$callback['title'];
+                            $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
+                        $content .= '</div>';
+                    $content .= '</div>';
+
+                    echo $content;
+
+                endif;
+
+                $working_hours = get_field('working_hours','option');
+
+                if($working_hours && $working_hours['show']):
+
+                    $content = '<div class="header-bottom__workday">';
+	                $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                    $content .= '</div>';
+                    $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
+
+                    echo $content;
+
+                endif;
+
+                echo '</div>';
+
+                ?>
+
             </div>
         </div>
-        <div class="footer-phones">
-            <div class="header-top__wrapper">
 
-<!--                <ul>-->
-<!--                    <li>-->
-<!--                        <div>Москва</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Краснодар</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Санкт-Петербург</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Ростов-на-Дону</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Нижний Новгород</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Санкт-Петербург</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Ростов-на-Дону</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                    <li>-->
-<!--                        <div>Нижний Новгород</div>-->
-<!--                        <a href="tel:+84996410306">+8 (499) 641-03-06</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-            </div>
-        </div>
+        <?php
+
+        if( get_field('add_phone_region','option') ):
+
+	        $content = '<div class="footer-phones">';
+	        $content .= '<div class="header-top__wrapper">';
+	        $content .= '<ul>';
+
+	        while( has_sub_field('add_phone_region','option') ):
+
+		        $region = get_sub_field('region');
+	            $phone = get_sub_field('phone');
+
+                $content .= '<li><div>'.$region.'</div><a href="tel:+'.set_clear_phone($phone) .'">'.$phone.'</a></li>';
+
+            endwhile;
+
+	        $content .= '</ul></div></div>';
+
+	        echo $content;
+
+        endif;
+
+        ?>
+
+
         <div class="header-top">
             <div class="header-top__wrapper">
                 <div class="footer-text">

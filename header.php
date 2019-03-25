@@ -70,11 +70,18 @@
     <div class="header-bottom">
         <div class="header-bottom__wrapper">
 
-            <a href="#" class="header-bottom__logo">
-                <img class="js-img-lazy" data-src="<?=get_template_directory_uri();?>/assets/img/logo.svg" src="/" alt="">
-            </a>
+            <?php
 
-            <?php wp_nav_menu(array(
+            $logo = get_field('logo','option');
+
+            if( $logo ){
+	            $content = '<a href="'.get_home_url().'" class="header-bottom__logo">';
+	            $content .= '<img class="js-img-lazy" data-src="'.$logo['logo_header']['url'].'" src="/" alt="'.$logo['logo_header']['alt'].'">';
+	            $content .= '</a>';
+	            echo $content;
+            }
+
+            wp_nav_menu(array(
                 'theme_location'    => 'main',
                 'container'     => false,
                 'menu_id'           => 'menu-main',
@@ -84,22 +91,42 @@
 
 
             <div class="header-bottom__box">
-                <div class="header-bottom__call">
-                    <div class="header-call__img">
-                        <i class="icon-tel"></i>
-                    </div>
-                    <div class="header-call__text">
-                        Свяжитесь с нами!
-                        <a href="tel:+84996410306" class="header-call__tel">+8 (499) 641-03-06</a>
-                    </div>
-                </div>
-                <div class="header-bottom__workday">
-                    <b>С 9:00 до 21:00</b>
-                    Без выходных и праздничных дней
-                </div>
-                <a href="#modal21" data-fancybox='modal' class="btn-white header-bottom__btn">
-                    Заказать звонок
-                </a>
+
+                <?php
+
+                $callback = get_field('callback','option');
+
+                if($callback && $callback['show']):
+
+                    $content = '<div class="header-bottom__call">';
+                        $content .= ' <div class="header-call__img">';
+                            $content .= '<i class="icon-tel"></i>';
+                        $content .= '</div>';
+                        $content .= '<div class="header-call__text">'.$callback['title'];
+                            $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
+                        $content .= '</div>';
+                    $content .= '</div>';
+
+                    echo $content;
+
+                endif;
+
+                $working_hours = get_field('working_hours','option');
+
+                if($working_hours && $working_hours['show']):
+
+                    $content = '<div class="header-bottom__workday">';
+	                $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                    $content .= '</div>';
+                    $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
+
+                    echo $content;
+
+                endif;
+
+                ?>
+
+
                 <a href="#" class="header-mobile__gamburger header-mobile__gamburger-js">
                     <span></span>
                     <span></span>
@@ -185,14 +212,18 @@
 
 	        endif;
 
+	        if($working_hours && $working_hours['show']):
+
+		        $content = '<div class="header-bottom__workday">';
+		        $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+		        $content .= '</div>';
+		        $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
+
+		        echo $content;
+
+	        endif;
+
 	        ?>
-            <div class="header-bottom__workday">
-                <b>С 9:00 до 21:00</b>
-                Без выходных и праздничных дней
-            </div>
-            <a href="#" class="btn-white header-bottom__btn">
-                Заказать звонок
-            </a>
         </div>
         <div class="header-mobile__overlay">
 

@@ -37,7 +37,13 @@ else:
 	while ( has_sub_field('sections') ) :
 
 		if( get_row_layout() == 'main-slider__wrapper' ):
-            get_template_part('template-pages/sections/main-slider__wrapper');
+			if( get_sub_field('show') )
+                get_template_part('template-pages/sections/main-slider__wrapper');
+		endif;
+
+		if( get_row_layout() == 'main-picture-list' ):
+            if( get_sub_field('show') )
+	            get_template_part('template-pages/sections/main-picture-list');
 		endif;
 
     endwhile;

@@ -1,85 +1,27 @@
 <section class="main-slider__wrapper">
 	<ul class="main-slider main-slider-js">
-		<li class="main-slider__item item1">
+
+        <?php if( get_sub_field('slider') ): $count = 0; ?>
+		<?php while( has_sub_field('slider') ): $count++ ?>
+		<li class="main-slider__item item1" style="background: url(<?= get_sub_field('background')['url']; ?>);-webkit-background-size: cover; background-size: cover; background-position: center;">
 			<div class="wrapper">
-				<div class="main-slider__box">
-					<h1 class="main-title">
-						ПОДКЛЮЧИМ БЕЗЛИМИТНЫЙ <br>
-						ИНТЕРНЕТ ДЛЯ ДАЧИ, ДОМА, БИЗНЕСА ЗА 2 ЧАСА
-					</h1>
-					<a href="#modal31" data-fancybox="modal" class="btn-green main-slider__btn">
-						Заказать консультацию
-					</a>
-				</div>
-
-
-
+				<?php if($count == 1): ?><div class="main-slider__box"><?php endif; ?>
+					<h1 class="main-title"><?= get_sub_field('title'); ?></h1>
+                    <?php if(get_sub_field('btn')): ?>
+					<a href="#modal31" data-fancybox="modal" class="btn-green main-slider__btn">Заказать консультацию</a>
+                    <?php endif; ?>
+                <?php if($count == 1): ?></div><?php endif; ?>
 			</div>
 		</li>
-		<li class="main-slider__item item1">
-			<div class="wrapper">
-				<h1 class="main-title">
-					ПОДКЛЮЧИМ БЕЗЛИМИТНЫЙ <br>
-					ИНТЕРНЕТ ДЛЯ ДАЧИ, ДОМА, БИЗНЕСА ЗА 2 ЧАСА
-				</h1>
-				<a href="#modal31" data-fancybox="modal" class="btn-green main-slider__btn">
-					Заказать консультацию
-				</a>
-			</div>
-		</li>
-		<li class="main-slider__item item1">
+        <?php endwhile; ?>
+        <?php endif; ?>
 
-		</li>
+
 	</ul>
 	<div class="main-slider__control">
 		<a href="#" class="slider-control__prev slider-arrow slider-control__prev-1-js"><i class="icon-arr-up"></i></a>
 		<a href="#" class="slider-control__next slider-arrow slider-control__next-1-js"><i class="icon-arr-bot"></i></a>
 
 	</div>
-	<div class="wrapper wrapper-abs">
-		<div class="main-slider__block">
-			<ul class="main-slider__list">
-				<li class="main-slider__el">
-					<div class="main-slider__img">
-						<i class="icon-5"></i>
-					</div>
-					<div class="main-slider__text">
-						Бесплатный выезд специалиста
-					</div>
-				</li>
-				<li class="main-slider__el">
-					<div class="main-slider__img">
-						<i class="icon-6"></i>
-					</div>
-					<div class="main-slider__text">
-						Подключение за 3 часа в день приезда
-					</div>
-				</li>
-				<li class="main-slider__el">
-					<div class="main-slider__img">
-						<i class="icon-7"></i>
-					</div>
-					<div class="main-slider__text">
-						Современное отказоустойчивое оборудование
-					</div>
-				</li>
-				<li class="main-slider__el">
-					<div class="main-slider__img">
-						<i class="icon-8"></i>
-					</div>
-					<div class="main-slider__text">
-						1 год гарантии на установку
-					</div>
-				</li>
-				<li class="main-slider__el">
-					<div class="main-slider__img">
-						<i class="icon-8_1"></i>
-					</div>
-					<div class="main-slider__text">
-						Крупная сеть
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
+
 </section>

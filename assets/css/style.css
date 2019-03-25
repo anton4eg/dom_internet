@@ -1187,8 +1187,6 @@ img { max-width: 100%; }
 
 .main-slider__item > .wrapper { height: 100%; padding-top: 107px; position: static; }
 
-.main-slider__item.item1 { background: url(../img/slide1.jpg); -webkit-background-size: cover; background-size: cover; background-position: center; }
-
 .main-slider__control { position: absolute; right: 0; top: 101px; right: 40px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; height: 386px; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
 
 .slider-arrow { display: block; text-align: center; height: 40px; width: 40px; -webkit-border-radius: 50%; border-radius: 50%; font-size: 16px; line-height: 16px; padding-top: 11px; color: #1F1F1F; background: white; border: 1px solid #fff; }

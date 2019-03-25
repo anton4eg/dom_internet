@@ -98,6 +98,7 @@ echo get_template_part('template-parts/head');
                     </div>
                 </div>
             </section>
+
             <section class="connect">
                 <div class="wrapper">
                     <h3 class="title">

@@ -357,3 +357,56 @@ $(window).bind('resize', handler);
 
 
 
+/*
+ * FOR WORDPRESS
+ */
+
+// Trahadrom with menu
+let count = 0;
+$('#menu-main, #menu-main-mob, #menu-main-footer').children('li').each(function () {
+    count++;
+
+    $(this).addClass('header-list__item');
+    if( !$(this).hasClass('menu-item-has-children') ) {
+        $(this).addClass('item2');
+    } else {
+        $(this).wrapInner('<div class="header-list__box header-list__box-js"></div>');
+        $(this).find('ul').addClass('header-list__drop');
+        $(this).find('ul > li').addClass('header-drop__item');
+        $(this).find('ul > li > a').addClass('header-drop__link');
+    }
+
+    let link = $(this).find('.header-list__box > a');
+    let title = link.text();
+    let menuClass = '';
+    let menuIcon = '';
+
+    link.remove();
+
+    switch(count){
+        case 1: menuClass = "icon-2"; break;
+        case 2: menuClass = "icon-1"; break;
+        case 3: menuClass = "icon-3"; menuIcon = ' img3'; break;
+        case 4: menuClass = "icon-4"; menuIcon = ' img4'; break;
+        case 5: menuClass = "icon-2"; break;
+        case 6: menuClass = "icon-1"; break;
+        case 7: menuClass = "icon-3"; menuIcon = ' img3'; break;
+        case 8: menuClass = "icon-4"; menuIcon = ' img4'; break;
+        case 9: menuClass = "icon-2"; break;
+        case 10: menuClass = "icon-1"; break;
+        case 11: menuClass = "icon-3"; menuIcon = ' img3'; break;
+        case 12: menuClass = "icon-4"; menuIcon = ' img4'; break;
+        default: menuClass = "icon-none";
+    }
+
+    if( !$(this).children().hasClass('header-list__box') ){
+        let content = $(this).find('a');
+        content.addClass('header-list__box');
+        content.wrapInner('<span class="header-list__text"></span>');
+        content.prepend('<span class="header-list__img'+menuIcon+'"><i class="'+menuClass+'"></i></span>');
+    } else {
+        let content = '<span class="header-list__img img1"><i class="' + menuClass + '"></i></span>';
+        content += '<span class="header-list__text">'+title+'&nbsp;<i class="icon-arr-down"></i></span>';
+        $(this).find('.header-list__box').prepend(content);
+    }
+});

@@ -5,12 +5,9 @@ class NewTheme {
 	public function activate_menus()
 	{
 		$menu = register_nav_menus(array(
-			'header-1' => 'Верхнее. Страницы с социальными значками',
-			'header-2' => 'Верхнее. Выпадающие страницы',
-			'footer-1' => 'Нижнее. Выпадающие страницы',
-			'footer-2' => 'Нижнее. Номера с городами',
-			'footer-3' => 'Нижнее. Страницы с социальными значками',
-		));
+			'menu-1'   => 'Меню страниц и социальных значков',
+			'main'     => 'Главное меню',
+		)); // 'footer-phone' => 'Нижнее. Номера с городами',
 
 		return $menu;
 	}
@@ -57,8 +54,8 @@ class NewTheme {
 		 * @param null $a_class
 		 * @param null $a_id
 		 */
-		function clean_custom_menus($menu_name, $nav_class=NULL, $nav_id=NULL, $ul_class=NULL, $ul_id=NULL, $li_class=NULL, $li_id=NULL,$a_class=NULL,$a_id=NULL ) {
-			$menu_name = $menu_name; // specify custom menu name
+		function clean_custom_menus($menu_name, $nav_class=NULL, $nav_id=NULL, $ul_class=NULL, $ul_id=NULL, $li_class=NULL, $li_id=NULL,$a_class=NULL,$a_id=NULL) {
+
 			if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
 				$menu = wp_get_nav_menu_object($locations[$menu_name]);
 				$menu_items = wp_get_nav_menu_items($menu->term_id);
@@ -74,13 +71,14 @@ class NewTheme {
 
 				if( $ul_class ){
 					$ul_class = ($ul_class )? ' class="'. $ul_class .'"' : '';
-					$ul_id = ($ul_id)? $ul_id : '';
+					$ul_id = ($ul_id)? "$ul_id" : '';
 				}
 
-				$menu_list .= "\t\t\t\t". '<ul id="'. $menu_name . ' ' . $ul_id . '"' . $ul_class .'>' ."\n";
+				$menu_list .= "\t\t\t\t". '<ul id="'. $menu_name . $ul_id . '"' . $ul_class .'>' ."\n";
 
 				if( $li_class || $li_id ){
-					$li_class = ($li_class)? ' class="'. $li_class.'"' : '';
+
+					$li_class = ($li_class)? ' class="'. $li_class .'"' : '';
 					$li_id = ($li_id )? ' id="'. $li_id .'"' : '';
 				}
 
@@ -92,7 +90,7 @@ class NewTheme {
 				foreach ((array) $menu_items as $key => $menu_item) {
 					$title = $menu_item->title;
 					$url = $menu_item->url;
-					$menu_list .= "\t\t\t\t\t". '<li'. $li_id . $li_class .'><a'. $a_id . $a_class .' href="'. $url .'">'. $title .'</a></li>' ."\n";
+					$menu_list .= "\t\t\t\t\t" . '<li' . $li_id . $li_class . '><a' . $a_id . $a_class . ' href="' . $url . '">' . $title . '</a></li>' . "\n";
 				}
 
 				$menu_list .= "\t\t\t\t". '</ul>' ."\n";
@@ -100,7 +98,7 @@ class NewTheme {
 				if( $nav_class || $nav_id )
 					$menu_list .= "\t\t\t". '</nav>' ."\n";
 			} else {
-				// $menu_list = '<!-- no list defined -->';
+				 $menu_list = '<!-- no list defined -->';
 			}
 			echo $menu_list;
 		}

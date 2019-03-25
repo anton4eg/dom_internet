@@ -1,8 +1,4 @@
 <?php
-/*
- * Template Name: Видеонаблюдение для частного дома
- */
-
 
 echo get_template_part('template-parts/head');
 
@@ -13,6 +9,7 @@ echo get_template_part('template-parts/head');
         <!-- BEGIN CONTENT -->
 
         <main class="content">
+
                         <section class="main-picture">
                             <div class="wrapper">
                                 <div class="main-picture__box">

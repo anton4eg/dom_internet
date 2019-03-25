@@ -4,7 +4,7 @@ get_template_part('template-parts/head');
 
 if( is_front_page() && is_home() || is_page() ):
 
-	get_template_part( 'template-pages/content-tpl-none', get_post_type() );
+	get_template_part( 'template-pages/index', get_post_type() );
 
 elseif( is_single() ):
 

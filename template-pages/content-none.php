@@ -1,3 +1,15 @@
-<?php
+<div class="main-wrapper tarifs">
 
-echo "Hello tpl/content-none.php";
+	<!-- BEGIN CONTENT -->
+
+	<main class="content">
+
+		<section class="main-picture">
+			<div class="wrapper">
+				<div class="main-picture__box">
+					<h1 class="main-title">Страница "<?= get_the_title(); ?>" не заполнена секциями. </h1>
+				</div>
+			</div>
+		</section>
+
+	</main>

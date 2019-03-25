@@ -1,18 +1,15 @@
 <?php
-/*
- * Template Name: Усиление сотовой связи
- */
-
 
 echo get_template_part('template-parts/head');
 
 ?>
 
-    <div class="main-wrapper price">
+    <div class="main-wrapper ">
 
     <!-- BEGIN CONTENT -->
 
         <main class="content">
+
             <section class="main-picture">
                 <div class="wrapper">
                     <div class="main-picture__box">
@@ -390,7 +387,7 @@ echo get_template_part('template-parts/head');
 							</div>
 						</section>
 						
-            <section class="scheme">
+             <section class="scheme">
                 <div class="wrapper">      
                     <div class="scheme-box">
                         <div class="scheme-box__pict">

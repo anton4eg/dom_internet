@@ -1,14 +1,11 @@
 <?php
-/*
- * Template Name: В деревню
- */
-
 
 echo get_template_part('template-parts/head');
 
 ?>
 
         <main class="content">
+
                         <section class="main-picture">
                             <div class="wrapper">
                                 <div class="main-picture__box">

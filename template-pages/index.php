@@ -1,104 +1,61 @@
 <?php
-/*
- * Template Name: Главная
- */
+
+$template = get_field('template');
+
+if( $template === 'Пустой' ):
+
+    get_template_part( 'template-pages/content-tpl-none', get_post_type() );
+
+elseif( !get_field('sections') ):
+
+	get_template_part( 'template-pages/content-none', get_post_type() );
+
+else:
+
+    switch ($template){
+        case "Главная":                           $template = ''; break;
+	    case "Камеры наблюдения":                 $template = ' cctv'; break;
+        case "Домашний интернет":                 $template = ' house-inet'; break;
+        case "Интернет":                          $template = ' net'; break;
+        case "Примеры работ":                     $template = ' examples'; break;
+        case "ТВ Онлайн":                         $template = ' online-tv'; break;
+        case "Цены и услуги":                     $template = ' price'; break;
+        case "Регион":                            $template = ' video-dacha'; break;
+        case "Усиление сотовой связи":            $template = ' price'; break;
+        case "Тарифы":                            $template = ' tarifs'; break;
+        case "В деревню":                         $template = ''; break;
+        case "Видеонаблюдение для частного дома": $template = ' video-dacha'; break;
+        case "В котедже":                         $template = ' vkotedji'; break;
+    }
+
+	echo '<div class="main-wrapper'.$template.'">';
+
+	echo '<!-- BEGIN CONTENT -->';
+
+	echo '<main class="content">';
+
+	while ( has_sub_field('sections') ) :
+
+		if( get_row_layout() == 'main-slider__wrapper' ):
+            get_template_part('template-pages/sections/main-slider__wrapper');
+		endif;
+
+    endwhile;
+
+	get_template_part('template-parts/popups/header-footer');
+	get_template_part('template-parts/popups/main-screen');
+
+	echo '</main>';
+
+	echo '<!-- CONTENT EOF -->';
 
 
-echo get_template_part('template-parts/head');
+endif;
 
 ?>
 
-    <div class="main-wrapper">
 
-        <!-- BEGIN CONTENT -->
-
-        <main class="content">
-            <section class="main-slider__wrapper">
-                <ul class="main-slider main-slider-js">
-                    <li class="main-slider__item item1">
-                        <div class="wrapper">
-                            <div class="main-slider__box">
-                                <h1 class="main-title">
-                                    ПОДКЛЮЧИМ БЕЗЛИМИТНЫЙ <br>
-                                    ИНТЕРНЕТ ДЛЯ ДАЧИ, ДОМА, БИЗНЕСА ЗА 2 ЧАСА
-                                </h1>
-                                <a href="#modal31" data-fancybox="modal" class="btn-green main-slider__btn">
-                                    Заказать консультацию
-                                </a>
-                            </div>
-
-
-
-                        </div>
-                    </li>
-                    <li class="main-slider__item item1">
-                        <div class="wrapper">
-                            <h1 class="main-title">
-                                ПОДКЛЮЧИМ БЕЗЛИМИТНЫЙ <br>
-                                ИНТЕРНЕТ ДЛЯ ДАЧИ, ДОМА, БИЗНЕСА ЗА 2 ЧАСА
-                            </h1>
-                            <a href="#modal31" data-fancybox="modal" class="btn-green main-slider__btn">
-                                Заказать консультацию
-                            </a>
-                        </div>
-                    </li>
-                    <li class="main-slider__item item1">
-
-                    </li>
-                </ul>
-                <div class="main-slider__control">
-                    <a href="#" class="slider-control__prev slider-arrow slider-control__prev-1-js"><i class="icon-arr-up"></i></a>
-                    <a href="#" class="slider-control__next slider-arrow slider-control__next-1-js"><i class="icon-arr-bot"></i></a>
-
-                </div>
-                <div class="wrapper wrapper-abs">
-                    <div class="main-slider__block">
-                        <ul class="main-slider__list">
-                            <li class="main-slider__el">
-                                <div class="main-slider__img">
-                                    <i class="icon-5"></i>
-                                </div>
-                                <div class="main-slider__text">
-                                    Бесплатный выезд специалиста
-                                </div>
-                            </li>
-                            <li class="main-slider__el">
-                                <div class="main-slider__img">
-                                    <i class="icon-6"></i>
-                                </div>
-                                <div class="main-slider__text">
-                                    Подключение за 3 часа в день приезда
-                                </div>
-                            </li>
-                            <li class="main-slider__el">
-                                <div class="main-slider__img">
-                                    <i class="icon-7"></i>
-                                </div>
-                                <div class="main-slider__text">
-                                    Современное отказоустойчивое оборудование
-                                </div>
-                            </li>
-                            <li class="main-slider__el">
-                                <div class="main-slider__img">
-                                    <i class="icon-8"></i>
-                                </div>
-                                <div class="main-slider__text">
-                                    1 год гарантии на установку
-                                </div>
-                            </li>
-                            <li class="main-slider__el">
-                                <div class="main-slider__img">
-                                    <i class="icon-8_1"></i>
-                                </div>
-                                <div class="main-slider__text">
-                                    Крупная сеть
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
+<!--
             <section class="connect">
                 <div class="wrapper">
                     <h3 class="title">
@@ -2253,13 +2210,4 @@ echo get_template_part('template-parts/head');
         </div>
     </div>
 </section>
-
-	        <?php get_template_part('template-parts/popups/header-footer');
-	              get_template_part('template-parts/popups/main-screen'); ?>
-</main>
-
-<!-- CONTENT EOF   -->
-
-    <?php get_header(); ?>
-
-    <?php get_footer(); ?>
+-->

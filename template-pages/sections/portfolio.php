@@ -119,9 +119,9 @@
 	<div class="portfolio-bottom">
 		<div class="wrapper">
 			<?php if(get_sub_field('headtitle')): ?><div class="portfolio-bottom__pretitle"><?=get_sub_field('headtitle');?></div><?php endif; ?>
-			<?php if(get_sub_field('title')): ?><h2 class="portfolio-bottom__title"><?=get_sub_field('title');?></h2><?php endif; ?>
+			<?php if(get_sub_field('desc-title')): ?><h2 class="portfolio-bottom__title"><?=get_sub_field('desc-title');?></h2><?php endif; ?>
 			<?=get_sub_field('subtitle');?>
-			<?php if(get_sub_field('title')): ?>
+			<?php if(get_sub_field('img')): ?>
             <div class="portfolio-bottom__img">
 				<img class="js-img-lazy" data-src="<?=get_sub_field('img')['url'];?>" src="/" alt="<?=get_sub_field('img')['alt'];?>">
 			</div>

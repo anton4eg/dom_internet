@@ -1,3 +1,1 @@
-<?php
-
-echo get_the_title();
+Интернет подключен в городе <?= get_the_title(); ?>.

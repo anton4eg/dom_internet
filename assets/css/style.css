@@ -2764,3 +2764,18 @@ body.active { overflow: hidden; }
  */
 .admin-bar header{ margin-top: 30px; }
 .use-floating-validation-tip span.wpcf7-not-valid-tip{ top: -50%; left: 40%; }
+
+.search .result-search .preloader {
+  width: 100%;
+  display: none;
+  background: #fff;
+  border-top: none;
+  border: 1px solid #eee;
+}
+
+.search .result-search .preloader .loader {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  display: block;
+}

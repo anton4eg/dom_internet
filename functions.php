@@ -1,12 +1,15 @@
 <?php
+$include_parts = "template-parts/";
 
-include 'template-parts/enqueue.php';
+include $include_parts . 'enqueue.php';
 
 $include_path = 'includes/';
 
 require_once ( $include_path . 'theme-functions.php' );
 
-include 'template-parts/post_type-portfolio.php';
+include $include_parts . 'post_type-portfolio.php';
+
+include $include_parts . 'post_type-city.php';
 
 $theme = new NewTheme();
 
@@ -64,5 +67,43 @@ function custom_custom_form_class_attr( $class ) {
 }
 add_filter('wpcf7_autop_or_not', '__return_false');
 
+
 // support thubnail
-add_theme_support( 'post-thumbnails' );
+add_theme_support( 'post-thumbnails', array( 'post', 'portfolio' ) );
+
+
+// hide post_type = posts
+add_action('admin_menu', 'remove_admin_menu_links', 999);
+function remove_admin_menu_links() {
+	remove_menu_page('edit.php');
+	remove_menu_page('edit-comments.php');
+}
+
+include $include_parts . "ajax-search-post.php";
+
+
+// add shortcode for contact-form 7. Select post type city @output [regions]
+wpcf7_add_shortcode('regions', 'createbox');
+function createbox(){
+	global $post;
+	// Show Post Type city:  $args = array( 'numberposts' => 0, 'post_type' => 'city' );
+	$args = array(
+		'taxonomy' => 'regions',
+		'hide_empty' => false,
+	);
+//	$myposts = get_posts( $args );
+	$myposts = get_terms( $args );
+	$output = '<div class="scheme-form__box">';
+	$output .= '<select class=\'order-form__select order-form__select-js\' data-placeholder=\'Выбрать регион\' name="lstdate" id="fleet" onchange="document.getElementById(\'fleet\').value=this.value;">';
+	$output .= '<option></option>';
+	foreach ( $myposts as $post ) : setup_postdata($post);
+		// Show Post Type city:
+		// $title = get_the_title();
+		// $output .= "<option> $title </option>";
+	$output .= "<option>".$post->name."</option>";
+	endforeach;
+	$output .= "</select>";
+	$output .= '</div>';
+
+	return $output;
+}

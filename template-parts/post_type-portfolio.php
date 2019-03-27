@@ -1,7 +1,7 @@
 <?php
 
-add_action( 'init', 'register_post_types' );
-function register_post_types(){
+add_action( 'init', 'portfolio' );
+function portfolio(){
 	register_post_type('portfolio', array(
 		'label'  => 'Portfolio',
 		'labels' => array(
@@ -20,7 +20,7 @@ function register_post_types(){
 		),
 		'description'         => 'Здесь выводятся все сделанные нами работы',
 		'public'              => true,
-		'publicly_queryable'  => null, // зависит от public
+		'publicly_queryable'  => true, // зависит от public
 		'exclude_from_search' => null, // зависит от public
 		'show_ui'             => null, // зависит от public
 		'show_in_menu'        => null, // показывать ли в меню адмнки
@@ -28,13 +28,13 @@ function register_post_types(){
 		'show_in_nav_menus'   => null, // зависит от public
 		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
 		'rest_base'           => null, // $post_type. C WP 4.7
-		'menu_position'       => 4,
-		'menu_icon'           => 'dashicons-admin-post',
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-portfolio',
 //		'capability_type'   => 'post',
 //		'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 //		'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
 		'hierarchical'        => false,
-		'supports'            => array('title','editor', 'thumbnail'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		'supports'            => array('title', 'thumbnail'), // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 		'taxonomies'          => array(),
 		'has_archive'         => false,
 		'rewrite'             => true,

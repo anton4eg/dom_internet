@@ -118,16 +118,24 @@
 <?php if(get_sub_field('choose_desc')): ?>
 	<div class="portfolio-bottom">
 		<div class="wrapper">
-			<div class="portfolio-bottom__pretitle"><?=get_sub_field('headtitle');?></div>
-			<h2 class="portfolio-bottom__title"><?=get_sub_field('title');?></h2>
+			<?php if(get_sub_field('headtitle')): ?><div class="portfolio-bottom__pretitle"><?=get_sub_field('headtitle');?></div><?php endif; ?>
+			<?php if(get_sub_field('title')): ?><h2 class="portfolio-bottom__title"><?=get_sub_field('title');?></h2><?php endif; ?>
 			<?=get_sub_field('subtitle');?>
-			<div class="portfolio-bottom__img">
-				<img class="js-img-lazy" data-src="img/hand.jpg" src="/" alt="">
+			<?php if(get_sub_field('title')): ?>
+            <div class="portfolio-bottom__img">
+				<img class="js-img-lazy" data-src="<?=get_sub_field('img')['url'];?>" src="/" alt="<?=get_sub_field('img')['alt'];?>">
 			</div>
+			<?php endif; ?>
+            <?php
+            $desc1 = get_sub_field('desc1');
+            $desc2 = get_sub_field('desc2');
+            if($desc1 && $desc2):
+            ?>
 			<div class="portfolio-bottom__box show-more">
-				<div class="portfolio-bottom__left"><?=get_sub_field('desc1');?></div>
-				<div class="portfolio-bottom__right"><?=get_sub_field('desc2');?></div>
+				<?php if($desc1): ?><div class="portfolio-bottom__left"><?=$desc1;?></div><?php endif; ?>
+				<?php if($desc2): ?><div class="portfolio-bottom__right"><?=$desc2;?></div><?php endif; ?>
 			</div>
+            <?php endif; ?>
 			<a href="#" class="region-list__more show-more-js">
                         <span class="region-span-1">
                         Показать весь список</span>

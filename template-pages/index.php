@@ -68,6 +68,10 @@ else:
 			get_template_part('template-pages/sections/portfolio');
 		endif;
 
+		if( get_row_layout() == 'service' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/service');
+		endif;
+
     endwhile;
 
 	get_template_part('template-parts/popups/header-footer');

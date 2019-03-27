@@ -6,6 +6,8 @@ $include_path = 'includes/';
 
 require_once ( $include_path . 'theme-functions.php' );
 
+include 'template-parts/post_type-portfolio.php';
+
 $theme = new NewTheme();
 
 $theme->activate_menus();
@@ -52,3 +54,15 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'parent_slug' => $parent['menu_slug'],
 	) );
 }
+
+
+// Contact-form 7
+add_filter( 'wpcf7_form_class_attr', 'custom_custom_form_class_attr' );
+function custom_custom_form_class_attr( $class ) {
+	$class .= ' scheme-box__form';
+	return $class;
+}
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+// support thubnail
+add_theme_support( 'post-thumbnails' );

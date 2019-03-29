@@ -7,6 +7,8 @@
 
 	            <?php
 
+	            if( get_field('footer-sub', 'option') ):
+
 	            $logo = get_field('logo','option');
 
 	            if( $logo ){
@@ -17,12 +19,12 @@
 	            }
 
                 wp_nav_menu(array(
-		            'theme_location'    => 'main',
-		            'container'     => false,
-		            'menu_id'           => 'menu-main-footer',
-		            'menu_class'        => 'header-bottom__list',
-		            'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	            ));
+                    'theme_location'    => 'main',
+                    'container'     => false,
+                    'menu_id'           => 'menu-main-footer',
+                    'menu_class'        => 'header-bottom__list',
+                    'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                ));
 
                 $callback = get_field('callback','option');
 
@@ -59,6 +61,8 @@
 
                 echo '</div>';
 
+                endif;
+                
                 ?>
 
             </div>
@@ -66,7 +70,7 @@
 
         <?php
 
-        if( get_field('add_phone_region','option') ):
+        if( get_field('add_phone_region','option') && get_field('footer-phone', 'option') ):
 
 	        $content = '<div class="footer-phones">';
 	        $content .= '<div class="header-top__wrapper">';
@@ -98,6 +102,7 @@
                 </div>
                 <?php
 
+                if(get_field('footer-social', 'option')):
                 clean_custom_menus('header-1', 0, 0, 'header-top__menu', 0, 'header-menu__item', 0, 'header-menu__link');
 
                 if( get_field('socials','options') ):
@@ -155,6 +160,9 @@
 	                echo $content;
 
                 endif;
+
+                endif;
+
                 ?>
                 <div class="footer-design">
                     Дизайн и разработка <br> <a href="http://sliceplanet.com/">«Slice Planet»</a>

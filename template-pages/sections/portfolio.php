@@ -99,13 +99,6 @@
         </ul>
 	    <?php wp_reset_postdata();?>
     <?php endif; ?>
-
-
-
-
-
-
-    <!--  ПРОДОЛЖИТЬ! TO BE CONTINUE...  -->
 	<div class="portfolio-slider__control">
 		<a href="#" class="portfolio-arrow__prev portfolio-arrow__prev-1-js portfolio-arrow">
 			<i class="icon-arr-left"></i>

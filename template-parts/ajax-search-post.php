@@ -2,7 +2,7 @@
 
 function ba_ajax_search(){
 	$args = array(
-		'post_type' => 'city',
+		'post_type' => 'post',
 		's' => $_POST['term'],
 		'posts_per_page' => -1
 	);

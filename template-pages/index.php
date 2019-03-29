@@ -12,6 +12,7 @@ elseif( !get_field('sections') ):
 
 else:
 
+	// это классы для обертки дива (main-wrapper) в зависимости от страницы
     switch ($template){
         case "Главная":                           $template = ''; break;
 	    case "Камеры наблюдения":                 $template = ' cctv'; break;
@@ -26,6 +27,7 @@ else:
         case "В деревню":                         $template = ''; break;
         case "Видеонаблюдение для частного дома": $template = ' video-dacha'; break;
         case "В котедже":                         $template = ' vkotedji'; break;
+        default:                                  $template = ' regions'; break;
     }
 
 	echo '<div class="main-wrapper'.$template.'">';
@@ -78,6 +80,22 @@ else:
 
 		if( get_row_layout() == 'regions' && get_sub_field('show') ):
 			get_template_part('template-pages/sections/regions');
+		endif;
+
+		if( get_row_layout() == 'maps' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/maps');
+		endif;
+
+		if( get_row_layout() == 'descriptions' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/descriptions');
+		endif;
+
+		if( get_row_layout() == 'reviews' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/reviews');
+		endif;
+
+		if( get_row_layout() == 'news' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/news');
 		endif;
 
     endwhile;

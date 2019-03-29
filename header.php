@@ -1,3 +1,11 @@
+<?php
+$post_id = 0;
+$queried_object = get_queried_object();
+if (isset($queried_object->term_id)) {
+	$post_id = $queried_object->taxonomy.'_'.$queried_object->term_id;
+}
+?>
+
 <!-- BEGIN HEADER -->
 
 <header>
@@ -94,7 +102,12 @@
 
                 <?php
 
+                $queried_object = get_the_category()[0];
+                $taxonomy = $queried_object->taxonomy;
+                $term_id = $queried_object->term_id;
+
                 $callback = get_field('callback','option');
+                $callbackSingle = get_field('single_working_phone', $GLOBALS['wp_embed']->post_ID = $taxonomy . '_' . $term_id);
 
                 if($callback && $callback['show']):
 
@@ -104,6 +117,11 @@
                         $content .= '</div>';
                         $content .= '<div class="header-call__text">'.$callback['title'];
                             $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
+
+	                        $content .= '<a href="tel:+'.set_clear_phone( $callbackSingle['phone'] ).'" class="header-call__tel down">'.$callbackSingle['phone'].'</a>';
+	                        if( !is_page() ) {
+		                        $content .= get_the_title();
+	                        }
                         $content .= '</div>';
                     $content .= '</div>';
 
@@ -112,11 +130,16 @@
                 endif;
 
                 $working_hours = get_field('working_hours','option');
+                $working_hours_single = get_field('single_working_hours', $GLOBALS['wp_embed']->post_ID = $taxonomy . '_' . $term_id);
 
                 if($working_hours && $working_hours['show']):
 
                     $content = '<div class="header-bottom__workday">';
-	                $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+	                if( !is_page() && get_post_type() === 'portfolio' ){
+	                    $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                    } else {
+	                    $content .= '<b>'.$working_hours_single['time'].'</b>'.$working_hours_single['text'];
+                    }
                     $content .= '</div>';
                     $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
 
@@ -126,23 +149,16 @@
 
                 ?>
 
-
                 <a href="#" class="header-mobile__gamburger header-mobile__gamburger-js">
                     <span></span>
                     <span></span>
                     <span></span>
                 </a>
             </div>
-
-
         </div>
     </div>
 
-
-
     <div class="header-mobile__wrapper">
-
-
         <div class="header-mobile">
 	        <?php
 

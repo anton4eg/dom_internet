@@ -11,6 +11,8 @@ include $include_parts . 'post_type-portfolio.php';
 
 include $include_parts . 'post_type-city.php';
 
+include $include_parts . 'post_type-news.php';
+
 $theme = new NewTheme();
 
 $theme->activate_menus();
@@ -69,13 +71,13 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 
 
 // support thubnail
-add_theme_support( 'post-thumbnails', array( 'post', 'portfolio' ) );
+add_theme_support( 'post-thumbnails', array( 'post', 'portfolio', 'news' ) );
 
 
 // hide post_type = posts
 add_action('admin_menu', 'remove_admin_menu_links', 999);
 function remove_admin_menu_links() {
-	remove_menu_page('edit.php');
+//	remove_menu_page('edit.php');
 	remove_menu_page('edit-comments.php');
 }
 
@@ -88,8 +90,9 @@ function createbox(){
 	global $post;
 	// Show Post Type city:  $args = array( 'numberposts' => 0, 'post_type' => 'city' );
 	$args = array(
-		'taxonomy' => 'regions',
+		'taxonomy'   => 'category',
 		'hide_empty' => false,
+		'exclude'    => array('1'),
 	);
 //	$myposts = get_posts( $args );
 	$myposts = get_terms( $args );

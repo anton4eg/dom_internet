@@ -28,5 +28,4 @@
 			<i class="icon-arr-down"></i>
 		</a>
 	</div>
-
 </section>

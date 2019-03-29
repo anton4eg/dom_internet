@@ -111,6 +111,9 @@ else:
 			get_template_part('template-pages/sections/special');
 		endif;
 
+		if( get_row_layout() == 'special-additional' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/special-additional');
+		endif;
 
 	endwhile;
 

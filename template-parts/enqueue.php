@@ -15,6 +15,9 @@ function enqueue_frontend() {
 	wp_enqueue_script( 'jquery-mCustomScrollbar', get_template_directory_uri().'/assets/js/components/jquery.mCustomScrollbar.js',array(),false, true );
 	wp_enqueue_script( 'jquery-fancybox', get_template_directory_uri().'/assets/js/components/jquery.fancybox.js',array(),false, true );
 	wp_enqueue_script( 'jqeye-min', get_template_directory_uri().'/assets/js/components/jqeye.min.js',array(),false, true );
+
+	// Next enqueue (ya-maps) need for install section "maps" on different pages
+	wp_enqueue_script( 'ya-maps', 'http://api-maps.yandex.ru/2.1/?lang=ru_RU',array(),false, true );
 	wp_enqueue_script( 'custom', get_template_directory_uri().'/assets/js/custom.js',array(),false, true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_frontend' );

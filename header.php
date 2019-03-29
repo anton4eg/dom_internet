@@ -118,7 +118,7 @@ if (isset($queried_object->term_id)) {
                             $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
 
                             $content .= '<a href="tel:+'.set_clear_phone( $callbackSingle['phone'] ).'" class="header-call__tel down">'.$callbackSingle['phone'].'</a>';
-                            if( !is_page() ) {
+                            if( !is_page() || get_post_type() === 'city' || !get_post_type() === 'portfolio' || !get_post_type() === 'news' ) {
                                 $content .= get_the_title();
                             }
                         $content .= '</div>';
@@ -134,7 +134,7 @@ if (isset($queried_object->term_id)) {
                 if($working_hours && $working_hours['show']):
 
                     $content = '<div class="header-bottom__workday">';
-                    if( !is_page() && get_post_type() === 'portfolio' ){
+                    if( is_page() || !get_post_type() === 'city' || get_post_type() === 'portfolio' || get_post_type() === 'news' ){
                         $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
                     } else {
                         $content .= '<b>'.$working_hours_single['time'].'</b>'.$working_hours_single['text'];

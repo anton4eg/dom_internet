@@ -4,70 +4,67 @@
 
         <div class="header-bottom">
             <div class="header-bottom__wrapper">
+            <?php
 
-	            <?php
+            if( get_field('footer-sub', 'option') ):
 
-	            if( get_field('footer-sub', 'option') ):
+            $logo = get_field('logo','option');
 
-	            $logo = get_field('logo','option');
+            if( $logo ){
+                $content = '<a href="'.get_home_url().'" class="header-bottom__logo">';
+                $content .= '<img class="js-img-lazy" data-src="'.$logo['logo_footer']['url'].'" src="/" alt="'.$logo['logo_footer']['alt'].'">';
+                $content .= '</a>';
+                echo $content;
+            }
 
-	            if( $logo ){
-		            $content = '<a href="'.get_home_url().'" class="header-bottom__logo">';
-		            $content .= '<img class="js-img-lazy" data-src="'.$logo['logo_footer']['url'].'" src="/" alt="'.$logo['logo_footer']['alt'].'">';
-		            $content .= '</a>';
-		            echo $content;
-	            }
+            wp_nav_menu(array(
+                'theme_location'    => 'main',
+                'container'     => false,
+                'menu_id'           => 'menu-main-footer',
+                'menu_class'        => 'header-bottom__list',
+                'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            ));
 
-                wp_nav_menu(array(
-                    'theme_location'    => 'main',
-                    'container'     => false,
-                    'menu_id'           => 'menu-main-footer',
-                    'menu_class'        => 'header-bottom__list',
-                    'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                ));
-
-                $callback = get_field('callback','option');
+            $callback = get_field('callback','option');
 
 
-                echo '<div class="header-bottom__box">';
+            echo '<div class="header-bottom__box">';
 
-                if($callback && $callback['show']):
+            if($callback && $callback['show']):
 
-                    $content = '<div class="header-bottom__call">';
-                        $content .= ' <div class="header-call__img">';
-                            $content .= '<i class="icon-tel"></i>';
-                        $content .= '</div>';
-                        $content .= '<div class="header-call__text">'.$callback['title'];
-                            $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
-                        $content .= '</div>';
+                $content = '<div class="header-bottom__call">';
+                    $content .= ' <div class="header-call__img">';
+                        $content .= '<i class="icon-tel"></i>';
                     $content .= '</div>';
-
-                    echo $content;
-
-                endif;
-
-                $working_hours = get_field('working_hours','option');
-
-                if($working_hours && $working_hours['show']):
-
-                    $content = '<div class="header-bottom__workday">';
-	                $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                    $content .= '<div class="header-call__text">'.$callback['title'];
+                        $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
                     $content .= '</div>';
-                    $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
+                $content .= '</div>';
 
-                    echo $content;
+                echo $content;
 
-                endif;
+            endif;
 
-                echo '</div>';
+            $working_hours = get_field('working_hours','option');
 
-                endif;
-                
-                ?>
+            if($working_hours && $working_hours['show']):
 
+                $content = '<div class="header-bottom__workday">';
+                $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                $content .= '</div>';
+                $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
+
+                echo $content;
+
+            endif;
+
+            echo '</div>';
+
+            endif;
+
+            ?>
             </div>
         </div>
-
         <?php
 
         if( get_field('add_phone_region','option') && get_field('footer-phone', 'option') ):
@@ -92,8 +89,6 @@
         endif;
 
         ?>
-
-
         <div class="header-top">
             <div class="header-top__wrapper">
                 <div class="footer-text">

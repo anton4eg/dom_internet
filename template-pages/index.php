@@ -12,6 +12,7 @@ elseif( !get_field('sections') ):
 
 else:
 
+	/* !!!!!!!!! * ВЕРСТАЛЬЩИКАМ СЮДА * !!!!!!!!! */
 	// это классы для обертки дива (main-wrapper) в зависимости от страницы
     switch ($template){
         case "Главная":                           $template = ''; break;
@@ -100,6 +101,14 @@ else:
 
 		if( get_row_layout() == 'observation' && get_sub_field('show') ):
 			get_template_part('template-pages/sections/observation');
+		endif;
+
+		if( get_row_layout() == 'main-picture' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/main-picture');
+		endif;
+
+		if( get_row_layout() == 'special' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/special');
 		endif;
 
 

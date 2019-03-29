@@ -98,7 +98,12 @@ else:
 			get_template_part('template-pages/sections/news');
 		endif;
 
-    endwhile;
+		if( get_row_layout() == 'observation' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/observation');
+		endif;
+
+
+	endwhile;
 
 	get_template_part('template-parts/popups/header-footer');
 	get_template_part('template-parts/popups/main-screen');

@@ -21,7 +21,7 @@
 							<div class="reviews-box__location"><?=$right['city'];?></div>
 							<div class="reviews-box__text"><?=$right['review'];?></div>
 						</div>
-						<div class="reviews-box__picture"><img class="js-img-lazy" data-src="img/qv.svg" src="/" alt=""></div>
+						<div class="reviews-box__picture"><img class="js-img-lazy" data-src="<?=get_template_directory_uri();?>/assets/img/qv.svg" src="/" alt="quote"></div>
 					</div>
 				</li>
 				<?php endwhile; ?>

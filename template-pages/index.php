@@ -119,6 +119,14 @@ else:
 			get_template_part('template-pages/sections/offers');
 		endif;
 
+		if( get_row_layout() == 'scheme_2' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/scheme_2');
+		endif;
+
+		if( get_row_layout() == 'table' && get_sub_field('show') ):
+			get_template_part('template-pages/sections/table');
+		endif;
+
 	endwhile;
 
 	get_template_part('template-parts/popups/header-footer');

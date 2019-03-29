@@ -13,10 +13,10 @@ if (isset($queried_object->term_id)) {
         <div class="header-top__wrapper">
 
         <?php
-
+        if( get_field('header-social', 'option') ):
         clean_custom_menus('header-1', 0, 0, 'header-top__menu', 0, 'header-menu__item', 0, 'header-menu__link');
 
-        if( get_field('socials','options') ):
+        if( get_field('socials','options') ){
 
             $content = '<ul class="social-list">';
 
@@ -49,7 +49,7 @@ if (isset($queried_object->term_id)) {
                 </defs>
                 </svg>';
 
-            while( has_sub_field( 'socials', 'options') ):
+            while( has_sub_field( 'socials', 'options') ){
 
                 if ( get_sub_field('choose') === 'viber' ) $icon = '<i class="icon-viber"></i>';
                 if ( get_sub_field('choose') === 'whatsapp' ) $icon = '<i class="icon-union"></i>';
@@ -65,10 +65,12 @@ if (isset($queried_object->term_id)) {
                     $content .= '</a>';
                 $content .= '</li>';
 
-            endwhile;
+            };
 
 	        $content .= '</ul>';
 	        echo $content;
+
+        };
 
         endif;
         ?>
@@ -77,9 +79,7 @@ if (isset($queried_object->term_id)) {
     </div>
     <div class="header-bottom">
         <div class="header-bottom__wrapper">
-
             <?php
-
             $logo = get_field('logo','option');
 
             if( $logo ){
@@ -88,18 +88,17 @@ if (isset($queried_object->term_id)) {
 	            $content .= '</a>';
 	            echo $content;
             }
-
-            wp_nav_menu(array(
-                'theme_location'    => 'main',
-                'container'     => false,
-                'menu_id'           => 'menu-main',
-                'menu_class'        => 'header-bottom__list',
-                'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            )); ?>
-
-
+            if( get_field('header-sub', 'option') ):
+            wp_nav_menu( array(
+                'theme_location' => 'main',
+                'container'      => false,
+                'menu_id'        => 'menu-main',
+                'menu_class'     => 'header-bottom__list',
+                'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            ) );
+            endif;
+            ?>
             <div class="header-bottom__box">
-
                 <?php
 
                 $queried_object = get_the_category()[0];
@@ -118,10 +117,10 @@ if (isset($queried_object->term_id)) {
                         $content .= '<div class="header-call__text">'.$callback['title'];
                             $content .= '<a href="tel:+'.set_clear_phone( $callback['phone'] ).'" class="header-call__tel">'.$callback['phone'].'</a>';
 
-	                        $content .= '<a href="tel:+'.set_clear_phone( $callbackSingle['phone'] ).'" class="header-call__tel down">'.$callbackSingle['phone'].'</a>';
-	                        if( !is_page() ) {
-		                        $content .= get_the_title();
-	                        }
+                            $content .= '<a href="tel:+'.set_clear_phone( $callbackSingle['phone'] ).'" class="header-call__tel down">'.$callbackSingle['phone'].'</a>';
+                            if( !is_page() ) {
+                                $content .= get_the_title();
+                            }
                         $content .= '</div>';
                     $content .= '</div>';
 
@@ -135,10 +134,10 @@ if (isset($queried_object->term_id)) {
                 if($working_hours && $working_hours['show']):
 
                     $content = '<div class="header-bottom__workday">';
-	                if( !is_page() && get_post_type() === 'portfolio' ){
-	                    $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
+                    if( !is_page() && get_post_type() === 'portfolio' ){
+                        $content .= '<b>'.$working_hours['time'].'</b>'.$working_hours['text'];
                     } else {
-	                    $content .= '<b>'.$working_hours_single['time'].'</b>'.$working_hours_single['text'];
+                        $content .= '<b>'.$working_hours_single['time'].'</b>'.$working_hours_single['text'];
                     }
                     $content .= '</div>';
                     $content .= '<a href="#modal21" data-fancybox="modal" class="btn-white header-bottom__btn">Заказать звонок</a>';
@@ -148,7 +147,6 @@ if (isset($queried_object->term_id)) {
                 endif;
 
                 ?>
-
                 <a href="#" class="header-mobile__gamburger header-mobile__gamburger-js">
                     <span></span>
                     <span></span>
@@ -157,22 +155,24 @@ if (isset($queried_object->term_id)) {
             </div>
         </div>
     </div>
-
     <div class="header-mobile__wrapper">
         <div class="header-mobile">
 	        <?php
 
-            wp_nav_menu(array(
-		        'theme_location'    => 'main',
-		        'container'     => false,
-		        'menu_id'           => 'menu-main-mob',
-		        'menu_class'        => 'header-bottom__list',
-		        'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	        ));
+	        if( get_field('header-sub', 'option') ):
+                wp_nav_menu(array(
+                    'theme_location'    => 'main',
+                    'container'     => false,
+                    'menu_id'           => 'menu-main-mob',
+                    'menu_class'        => 'header-bottom__list',
+                    'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                ));
+	        endif;
 
+	        if( get_field('header-social', 'option') ):
 	        clean_custom_menus('header-1', 0, 0, 'header-top__menu', 0, 'header-menu__item', 0, 'header-menu__link');
 
-	        if( get_field('socials','options') ):
+	        if( get_field('socials','options') ) {
 
 		        $content = '<ul class="social-list">';
 
@@ -205,26 +205,42 @@ if (isset($queried_object->term_id)) {
                 </defs>
                 </svg>';
 
-		        while( has_sub_field( 'socials', 'options') ):
+		        while ( has_sub_field( 'socials', 'options' ) ) {
 
-			        if ( get_sub_field('choose') === 'viber' ) $icon = '<i class="icon-viber"></i>';
-			        if ( get_sub_field('choose') === 'whatsapp' ) $icon = '<i class="icon-union"></i>';
-			        if ( get_sub_field('choose') === 'tg' ) $icon = '<i class="icon-telegram"></i>';
-			        if ( get_sub_field('choose') === 'skype' ) $icon = '<i class="icon-skype"></i>';
-			        if ( get_sub_field('choose') === 'Instagram' ) $icon = $svg;
-			        if ( get_sub_field('choose') === 'vk' ) $icon = '<i class="icon-vk"></i>';
-			        if ( get_sub_field('choose') === 'fb' ) $icon = '<i class="icon-fb"></i>';
+			        if ( get_sub_field( 'choose' ) === 'viber' ) {
+				        $icon = '<i class="icon-viber"></i>';
+			        }
+			        if ( get_sub_field( 'choose' ) === 'whatsapp' ) {
+				        $icon = '<i class="icon-union"></i>';
+			        }
+			        if ( get_sub_field( 'choose' ) === 'tg' ) {
+				        $icon = '<i class="icon-telegram"></i>';
+			        }
+			        if ( get_sub_field( 'choose' ) === 'skype' ) {
+				        $icon = '<i class="icon-skype"></i>';
+			        }
+			        if ( get_sub_field( 'choose' ) === 'Instagram' ) {
+				        $icon = $svg;
+			        }
+			        if ( get_sub_field( 'choose' ) === 'vk' ) {
+				        $icon = '<i class="icon-vk"></i>';
+			        }
+			        if ( get_sub_field( 'choose' ) === 'fb' ) {
+				        $icon = '<i class="icon-fb"></i>';
+			        }
 
 			        $content .= '<li class="social-list__item">';
-			        $content .= '<a href="'.get_sub_field('link').'" class="social-list__link">';
+			        $content .= '<a href="' . get_sub_field( 'link' ) . '" class="social-list__link">';
 			        $content .= $icon;
 			        $content .= '</a>';
 			        $content .= '</li>';
 
-		        endwhile;
+		        };
 
 		        $content .= '</ul>';
 		        echo $content;
+
+	        };
 
 	        endif;
 

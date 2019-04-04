@@ -6,7 +6,7 @@ if( is_front_page() && is_home() || is_page() ):
 
 	get_template_part( 'template-pages/index', get_post_type() );
 
-elseif( is_single() ):
+//--elseif( is_single() ):
 
 	if ( have_posts() ) :
 
@@ -24,7 +24,7 @@ elseif( is_single() ):
 
 		endwhile;
 
-	else :
+	//-- else :
 
 		get_template_part( 'template-pages/content', 'none' );
 
